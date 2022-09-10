@@ -44,6 +44,7 @@ function generate(defaultNum) {
         gridItem.className = 'grid-item';
         gridContainer.appendChild(gridItem);
     }
+    draw();
 }
 
 // deletes all children of gridContainer - this would be the generated grid items.
