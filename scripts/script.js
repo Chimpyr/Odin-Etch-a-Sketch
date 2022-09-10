@@ -19,6 +19,7 @@ function load() {
 function generate(defaultNum) {
     console.log('defaultNum is: ' + defaultNum);
     let num;
+    // this is here as if it is the event listener calling the function then it will be passed an object instead, though if I want to call the function with another number then this allows the possibility in the future.
     if (isNaN(defaultNum)) {
         // if the parameter is not a number value then it will request a number to use
         num = window.prompt('Enter a number');
@@ -28,9 +29,11 @@ function generate(defaultNum) {
         reset();
     } else {
         num = defaultNum;
-        console.log('defaultNum is defined: ' + defaultNum);
+        if (defaultNum === null) {
+            num = 4;
+        }  
     }
-    console.log('num is: ' + num);
+    //console.log('num is: ' + num);
 
     //this will edit the css grid proprty to make the amount of columns equal the amount requested
     let repeatTimes = 'grid-template-columns: repeat(' + num + ', 1fr)';
