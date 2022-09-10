@@ -22,10 +22,13 @@ function generate(defaultNum) {
     if (isNaN(defaultNum)) {
         // if the parameter is not a number value then it will request a number to use
         num = window.prompt('Enter a number');
+        if (num === null) {
+            num = 4;
+        }
         reset();
     } else {
         num = defaultNum;
-        console.log('def num is defined' + defaultNum)
+        console.log('defaultNum is defined: ' + defaultNum);
     }
     console.log('num is: ' + num);
 
