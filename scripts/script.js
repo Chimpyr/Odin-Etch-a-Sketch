@@ -8,6 +8,7 @@ resetButton = document.getElementById('reset').addEventListener("click", load);
 function load() {
     reset();
     generate(4);
+    draw();
 }
 
 
@@ -54,5 +55,18 @@ function reset() {
         }
 }
     
+
+function draw() {
+    // this function should draw the colour black onto the grid items the user is hovering over
+    let gridItems = document.querySelectorAll('.grid-item');
+    gridItems.forEach(element => {
+        //element.setAttribute('style', 'background-color: black')
+        element.addEventListener('mouseenter', (e) => {
+            e.target.style.backgroundColor = 'black';
+        })
+    });
+}
+
+
 
 load();
