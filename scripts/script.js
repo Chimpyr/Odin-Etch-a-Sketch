@@ -22,10 +22,11 @@ function generate(defaultNum) {
     let num;
     // this is here as if it is the event listener calling the function then it will be passed an object instead, though if I want to call the function with another number then this allows the possibility in the future.
     if (isNaN(defaultNum)) {
-        // if the parameter is not a number value then it will request a number to use
+        // if the parameter is not a number value then it will request a number to use, it should also be a reasonable value.
         num = window.prompt('Enter a number');
-        if (num === null) {
+        if (num === null || num > 100 || num < 1) {
             num = 4;
+            alert('The value must not be: null, greater than 100 or less than 1.');
         }
         reset();
     } else {
@@ -63,7 +64,7 @@ function draw() {
     gridItems.forEach(element => {
         //element.setAttribute('style', 'background-color: black')
         element.addEventListener('mouseenter', (e) => {
-            e.target.style.backgroundColor = 'black';
+            e.target.style.backgroundColor = '#002642';
         })
     });
 }
